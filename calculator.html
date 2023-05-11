@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./calculator.css">
+    <title>Calculator</title>
+</head>
+
+<body class="d-flex justify-content-center">
+    <main class="parent p-1">
+        <div class="d-flex justify-content-between ps-1 pe-1">
+            <small>Calculator</small>
+            <section class="w-50 d-flex justify-content-between align-items-center">
+                <i class="fa fa-window-minimize pb-2"></i>
+                <i class="fa fa-square-o"></i>
+                <i class="material-icons">close</i>
+            </section>
+        </div>
+        <div class="d-flex align-items-center ps-1 pe-1 mt-3">
+            <i class="fa fa-navicon"></i>
+            <h5 class="m-0 ms-4 me-5">Standard</h5>
+            <i class="material-icons floatleft">restore</i>
+        </div>
+        <div class="mt-2 pe-1 calculationarea d-flex">
+            <p id="screen"></p>
+            <h1 id="screen1">0</h1>
+        </div>
+        <main class="grid">
+            <div class="row ms-0">
+                <small class="col">MC</small>
+                <small class="col">MR</small>
+                <small class="col">M+</small>
+                <small class="col">M-</small>
+                <small class="col">MS</small>
+                <small class="col">M</small>
+            </div>
+            <div class="row1 d-flex justify-content-center mt-4">
+                <p>%</p>
+                <p onclick="numberToZero()">CE</p>
+                <p onclick="clearscreen()">C</p>
+                <p><i class="material-icons">backspace</i></p>
+                <p><sup>1</sup>/<em><sub>x</sub></em></p>
+                <p><em>x</em><sup>2</sup></p>
+                <p><sup>2</sup>√<em>x</em></p>
+                <p onclick="operator('/')">/</p>
+                <p class="num" id="seven" onclick="number(7)">7</p>
+                <p class="num" id="eight" onclick="number(8)">8</p>
+                <p class="num" id="nine" onclick="number(9)">9</p>
+                <p onclick="operator('x')">x</p>
+                <p class="num" id="four" onclick="number(4)">4</p>
+                <p class="num" id="five" onclick="number(5)">5</p>
+                <p class="num" id="six" onclick="number(6)">6</p>
+                <p onclick="operator('-')">-</p>
+                <p class="num" id="one" onclick="number(1)">1</p>
+                <p class="num" id="two" onclick="number(2)">2</p>
+                <p class="num" id="three" onclick="number(3)">3</p>
+                <p onclick="operator('+')">+</p>
+                <p class="num"><sup>+</sup>/ <sub>-</sub></p>
+                <p class="num" onclick="number(0)">0</p>
+                <p class="num">.</p>
+                <p class="equalsto" onclick="result(operatorsrex[operatorsrex.length-1])">=</p>
+            </div>
+        </main>
+    </main>
+</body>
+
+</html>
+<script src="./calculator.js"></script>

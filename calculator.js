@@ -9,6 +9,7 @@ let firstnum;
     let first = true;
     let firstTypeNum = true;
     let count = 0;
+    let screen = document.querySelector('#screen')
     let result1 = false
     function number(num) {
         if (clear) {
@@ -35,17 +36,21 @@ let firstnum;
         if (first) {
             firstnum = screen1.innerHTML;
             // thirdNum = screen1.innerHTML;
+            screen.innerHTML += `${firstnum} ${operation}`;
             first = false;
         }
-        document.getElementById('screen').innerHTML += `${firstnum} ${operation}`;
         clear = true;
         count++;
         if (count > 1 && result1 == false) {
             // secondNum = screen1.innerHTML;
-            result(operatorsrex[operatorsrex.length-2]);
-            document.getElementById('screen').innerHTML += `${thirdNum} ${operatorsrex[operatorsrex.length-1]}`;
+            result(operatorsrex[operatorsrex.length-2], 'not clicked');
+            screen.innerHTML += `${secondNum} ${operatorsrex[operatorsrex.length-1]}`;
             count = 1;
             // thirdNum = secondNum;
+        }
+        if (result1 == true) {
+            // screen.innerHTML += `${secondNum} ${operatorsrex[operatorsrex.length-1]}`;
+            // screen.innerHTML += `=`
         }
         // clear = false;
         // if (clear){
@@ -53,9 +58,13 @@ let firstnum;
         // }
         // result()
     }
-    function result(params) {
+    function result(params , click) {
         secondNum = screen1.innerHTML;
+
         if (result1 == false) {
+            if (click == 'clicked') {
+                screen.innerHTML += `${secondNum} =`
+            }
             if (params == '+') {
                 answer = Number(firstnum) + Number(secondNum);
                 screen1.innerHTML = answer;
@@ -79,16 +88,15 @@ let firstnum;
                 //     firstnum = '';
                 // }
             }
-            else {
-                screen1.innerHTML = `Undefined`;
+            else if (params != '+' || params != '-' || params != 'x' || params != '/'){
+                screen1.innerHTML = `Not an possible operation`;
             }
         }
         result1 = true;
-        document.getElementById('screen').innerHTML = `${answer}`
     }
     function clearscreen() {
-        document.getElementById('screen').innerHTML = "";
-        document.getElementById('screen1').innerHTML = "0";
+        screen.innerHTML = "";
+        screen1.innerHTML = "0";
         firstnum = ''
         secondNum = ''
         rescount = false;
@@ -97,5 +105,5 @@ let firstnum;
         count = 0
     }
     function numberToZero() {
-        document.getElementById('screen1').innerHTML = 0;
+        screen1.innerHTML = 0;
     }

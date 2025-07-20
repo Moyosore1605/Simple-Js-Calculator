@@ -24,7 +24,7 @@ let firstnum;
         // thirdNum.push(num);
         // document.getElementById("clear").innerHTML = '';
         if (count > 0) {
-            num = ''
+            // num = ''
             result1 = false;
         }
     }
@@ -44,12 +44,12 @@ let firstnum;
         if (count > 1 && result1 == false) {
             // secondNum = screen1.innerHTML;
             result(operatorsrex[operatorsrex.length-2], 'not clicked');
-            screen.innerHTML += `${secondNum} ${operatorsrex[operatorsrex.length-1]}`;
+            screen.innerHTML += `${secondNum} ${operatorsrex[operatorsrex.length-1] }`;
             count = 1;
             // thirdNum = secondNum;
         }
         if (result1 == true) {
-            // screen.innerHTML += `${secondNum} ${operatorsrex[operatorsrex.length-1]}`;
+            screen.innerHTML = `${firstnum} ${signs}`; 
             // screen.innerHTML += `=`
         }
         // clear = false;
@@ -89,7 +89,7 @@ let firstnum;
                 // }
             }
             else if (params != '+' || params != '-' || params != 'x' || params != '/'){
-                screen1.innerHTML = `Not an possible operation`;
+                screen1.innerHTML = `Not a possible operation`;
             }
         }
         result1 = true;
@@ -100,7 +100,7 @@ let firstnum;
         firstnum = ''
         secondNum = ''
         rescount = false;
-        clear = false;
+        clear = true;
         first = true;
         count = 0
     }
